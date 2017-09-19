@@ -13,6 +13,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public class Main {
 	// The window handle
+	//wewewewewewewewe
 	private long window;
 
 	public void run() {
