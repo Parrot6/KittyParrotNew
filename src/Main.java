@@ -12,7 +12,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class Main {
-	// CAPS LOCK ^.^
+	// CAPSLOCK ^-^
 	// The window handle
 	private long window;
 
