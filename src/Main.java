@@ -21,7 +21,7 @@ public class Main {
 
 		init();
 		loop();
-
+		//kitty sucks
 		// Free the window callbacks and destroy the window
 		glfwFreeCallbacks(window);
 		glfwDestroyWindow(window);
