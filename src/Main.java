@@ -15,13 +15,14 @@ public class Main {
 	// The window handle
 	//wewewewewewewewe
 	private long window;
-
+	private DrawFunc Gamescreen; //global so can instantiate in init
+	
 	public void run() {
 		System.out.println("Hello LWJGL " + Version.getVersion() + "!");
 
 		init();
 		loop();
-		//kitty suckskkkk
+		
 		// Free the window callbacks and destroy the window
 		glfwFreeCallbacks(window);
 		glfwDestroyWindow(window);
@@ -35,7 +36,9 @@ public class Main {
 		// Setup an error callback. The default implementation
 		// will print the error message in System.err.
 		GLFWErrorCallback.createPrint(System.err).set();
-
+		
+		Gamescreen = new DrawFunc(); //instantiate so we can use its functions in render loop
+		
 		// Initialize GLFW. Most GLFW functions will not work before doing this.
 		if ( !glfwInit() )
 			throw new IllegalStateException("Unable to initialize GLFW");
@@ -54,6 +57,8 @@ public class Main {
 		glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
 			if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
 				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+			if ( key == GLFW_KEY_W )
+				glClearColor((float)Math.random(), 0.0f, 0.0f, 0.0f);
 		});
 
 		// Get the thread stack and push a new frame
@@ -101,10 +106,7 @@ public class Main {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
 			glfwSwapBuffers(window); // swap the color buffers
-			glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
-				if ( key == GLFW_KEY_W )
-					glClearColor((float)Math.random(), 0.0f, 0.0f, 0.0f);
-			});
+
 			// Poll for window events. The key callback above will only be
 			// invoked during this call.
 			glfwPollEvents();
