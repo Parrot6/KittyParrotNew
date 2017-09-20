@@ -1,3 +1,8 @@
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glColor4f;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glVertex2f;
 
 public class Player implements Actor{
 	float XLoc;
@@ -22,14 +27,14 @@ public class Player implements Actor{
 
 	@Override
 	public void Heal(float H) {
-		// TODO Auto-generated method stub
-		
+		Life += H;
 	}
 
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		
+		//LOOT Drops
+		//EXP Rewards etc
 	}
 
 	@Override
@@ -79,6 +84,21 @@ public class Player implements Actor{
 		this.Life = Life;
 		this.Speed = Speed;
 		this.Direction = Direction;
+	}
+
+	@Override
+	public void Draw() {
+		//TEST CODE
+		glBegin(GL_QUADS);
+		glColor4f(1,0,0,0);
+		glVertex2f(-0.1f, 0.1f);
+		glColor4f(1,1,0,0);
+		glVertex2f(0.1f, 0.1f);
+		glColor4f(1,0,1,0);
+		glVertex2f(0.1f, -0.1f);
+		glColor4f(1,0,0,1);
+		glVertex2f(-0.1f, -0.1f);
+	glEnd();
 	}
 
 
