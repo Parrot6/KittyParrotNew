@@ -70,7 +70,6 @@ public class AIPlayer implements Actor{
 	public void SetSpeed(float Speed) {
 		this.Speed = Speed;
 	}
-	
 	@Override
 	public void Create(float XLoc, float YLoc, float ZLoc, float Life, float Speed, float Direction) {
 		this.XLoc = XLoc;
