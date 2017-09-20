@@ -46,7 +46,7 @@ public class Main {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
 		// Create the window
-		window = glfwCreateWindow(300, 300, "Hello World!", NULL, NULL);
+		window = glfwCreateWindow(800, 600, "Kitty Parrot!", NULL, NULL);
 		if ( window == NULL )
 			throw new RuntimeException("Failed to create the GLFW window");
 
@@ -101,7 +101,10 @@ public class Main {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
 			glfwSwapBuffers(window); // swap the color buffers
-
+			glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
+				if ( key == GLFW_KEY_W )
+					glClearColor((float)Math.random(), 0.0f, 0.0f, 0.0f);
+			});
 			// Poll for window events. The key callback above will only be
 			// invoked during this call.
 			glfwPollEvents();
