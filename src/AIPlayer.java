@@ -1,6 +1,12 @@
 
 public class AIPlayer implements Actor{
-
+	float XLoc;
+	float YLoc;
+	float ZLoc;
+	float Life;
+	float Speed;
+	float Direction;
+	
 	@Override
 	public void Move(float x, float y, float z) {
 		// TODO Auto-generated method stub
@@ -20,12 +26,6 @@ public class AIPlayer implements Actor{
 	}
 
 	@Override
-	public void Create(float XLoc, float Yloc) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
 		
@@ -33,50 +33,51 @@ public class AIPlayer implements Actor{
 
 	@Override
 	public float GetXLoc() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void SetXLoc() {
-		// TODO Auto-generated method stub
-		
+		return XLoc;
 	}
 
 	@Override
 	public float GetYLoc() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void SetYLoc() {
-		// TODO Auto-generated method stub
-		
+		return YLoc;
 	}
 
 	@Override
 	public float GetZLoc() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void SetZLoc() {
-		// TODO Auto-generated method stub
-		
+		return ZLoc;
 	}
 
 	@Override
 	public float GetSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Speed;
 	}
 
 	@Override
-	public void SetSpeed() {
-		// TODO Auto-generated method stub
-		
+	public void SetXLoc(float X) {
+		this.XLoc = X;
 	}
 
+	@Override
+	public void SetYLoc(float Y) {
+		this.YLoc = Y;		
+	}
+
+	@Override
+	public void SetZLoc(float Z) {
+		this.ZLoc = Z;
+	}
+
+	@Override
+	public void SetSpeed(float Speed) {
+		this.Speed = Speed;
+	}
+	
+	@Override
+	public void Create(float XLoc, float YLoc, float ZLoc, float Life, float Speed, float Direction) {
+		this.XLoc = XLoc;
+		this.YLoc = YLoc;
+		this.ZLoc = ZLoc;
+		this.Life = Life;
+		this.Speed = Speed;
+		this.Direction = Direction;
+	}
 }

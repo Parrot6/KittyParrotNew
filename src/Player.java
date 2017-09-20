@@ -9,14 +9,15 @@ public class Player implements Actor{
 	
 	@Override
 	public void Move(float x, float y, float z) {
-		// TODO Auto-generated method stub
-		
+		XLoc += x;
+		YLoc += y;
+		ZLoc += z;
 	}
 
 	@Override
 	public void TakeDamage(float D) {
-		// TODO Auto-generated method stub
-		
+		Life -= D;
+		if(Life <= 0) Execute();
 	}
 
 	@Override
