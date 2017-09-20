@@ -1,5 +1,5 @@
 
-public class Lemur implements Monster {
+public class Lemur implements Cloneable, Actor {
 	
 	float XLoc;
 	float YLoc;
@@ -10,22 +10,6 @@ public class Lemur implements Monster {
 	
 	public Lemur() {
 		System.out.println("base Lemur");
-	}
-	
-	@Override
-	public Monster makeCopy() {
-		 System.out.println("start clone");
-		 
-		Lemur lemurObj = null;
-		
-		try {
-			lemurObj = (Lemur) super.clone();
-		} catch (CloneNotSupportedException e) {
-			// when cloning obj not extending cloneable
-			e.printStackTrace();
-		}
-		
-		return lemurObj;
 	}
 	
 	@Override
@@ -100,5 +84,21 @@ public class Lemur implements Monster {
 		this.Life = Life;
 		this.Speed = Speed;
 		this.Direction = Direction;
+	}
+
+	@Override
+	public void Draw() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public Lemur Clone(){
+		try {
+			return (Lemur) this.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

@@ -1,5 +1,5 @@
 
-public class Fox implements Monster {
+public class Fox implements Cloneable, Actor {
 	
 	float XLoc;
 	float YLoc;
@@ -10,22 +10,6 @@ public class Fox implements Monster {
 	
 	public Fox() {
 		System.out.println("base fox");
-	}
-	
-	@Override
-	public Monster makeCopy() {
-		 System.out.println("start clone");
-		 
-		Fox foxObj = null;
-		
-		try {
-			foxObj = (Fox) super.clone();
-		} catch (CloneNotSupportedException e) {
-			// when cloning obj not extending cloneable
-			e.printStackTrace();
-		}
-		
-		return foxObj;
 	}
 	
 	@Override
@@ -100,5 +84,21 @@ public class Fox implements Monster {
 		this.Life = Life;
 		this.Speed = Speed;
 		this.Direction = Direction;
+	}
+
+	@Override
+	public void Draw() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public Fox Clone(){
+		try {
+			return (Fox) this.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

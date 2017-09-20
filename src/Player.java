@@ -100,6 +100,4 @@ public class Player implements Actor{
 		glVertex2f(-0.1f, -0.1f);
 	glEnd();
 	}
-
-
 }

@@ -41,12 +41,11 @@ public class Main {
 		
 		
 		// SPAWN STUFF
-		ClonePrototype monsterMaker = new ClonePrototype();
 		Lemur smallLemur = new Lemur();
-		Lemur clonedLemur = (Lemur) monsterMaker.getClone(smallLemur);
+		Lemur clonedLemur = smallLemur.Clone();
 		
 		Fox angryFox = new Fox();
-		Fox clonedFox = (Fox) monsterMaker.getClone(angryFox);
+		Fox clonedFox = angryFox.Clone();
 		
 		// Initialize GLFW. Most GLFW functions will not work before doing this.
 		if ( !glfwInit() )
@@ -66,7 +65,7 @@ public class Main {
 		glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
 			if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
 				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
-			if ( key == GLFW_KEY_W ) ThisWorld.MainPlayer.Move(3f, 0f, 0f);
+			if ( key == GLFW_KEY_W ) ThisWorld.MainPlayer.Move(3.0f, 0f, 0f);
 		});
 
 		// Get the thread stack and push a new frame
