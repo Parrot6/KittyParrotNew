@@ -1,6 +1,8 @@
 
 public interface Actor {
 	
+	public void Draw();
+	
 	public void Move(float x, float y, float z);
 	
 	public void TakeDamage(float D);

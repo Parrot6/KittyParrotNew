@@ -16,7 +16,7 @@ public class Main {
 	//wewewewewewewewe
 	private long window;
 	private DrawFunc Gamescreen; //global so can instantiate in init
-	
+	private GameWorld ThisWorld;
 	public void run() {
 		System.out.println("Hello LWJGL " + Version.getVersion() + "!");
 
@@ -36,7 +36,7 @@ public class Main {
 		// Setup an error callback. The default implementation
 		// will print the error message in System.err.
 		GLFWErrorCallback.createPrint(System.err).set();
-		
+		ThisWorld = new GameWorld();
 		Gamescreen = new DrawFunc(); //instantiate so we can use its functions in render loop
 		
 		
@@ -66,8 +66,7 @@ public class Main {
 		glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
 			if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
 				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
-			if ( key == GLFW_KEY_W )
-				glClearColor((float)Math.random(), 0.0f, 0.0f, 0.0f);
+			if ( key == GLFW_KEY_W ) ThisWorld.MainPlayer.Move(3f, 0f, 0f);
 		});
 
 		// Get the thread stack and push a new frame
@@ -113,7 +112,7 @@ public class Main {
 		// the window or has pressed the ESCAPE key.
 		while ( !glfwWindowShouldClose(window) ) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-			Gamescreen.DrawSquare();
+			Gamescreen.Draw();
 
 			glfwSwapBuffers(window); // swap the color buffers
 			// Poll for window events. The key callback above will only be

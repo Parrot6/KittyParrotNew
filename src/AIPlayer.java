@@ -80,4 +80,10 @@ public class AIPlayer implements Actor{
 		this.Speed = Speed;
 		this.Direction = Direction;
 	}
+
+	@Override
+	public void Draw() {
+		// TODO Auto-generated method stub
+		
+	}
 }
