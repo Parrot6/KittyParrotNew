@@ -39,6 +39,15 @@ public class Main {
 		
 		Gamescreen = new DrawFunc(); //instantiate so we can use its functions in render loop
 		
+		
+		// SPAWN STUFF
+		ClonePrototype monsterMaker = new ClonePrototype();
+		Lemur smallLemur = new Lemur();
+		Lemur clonedLemur = (Lemur) monsterMaker.getClone(smallLemur);
+		
+		Fox angryFox = new Fox();
+		Fox clonedFox = (Fox) monsterMaker.getClone(angryFox);
+		
 		// Initialize GLFW. Most GLFW functions will not work before doing this.
 		if ( !glfwInit() )
 			throw new IllegalStateException("Unable to initialize GLFW");
