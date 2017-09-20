@@ -21,8 +21,11 @@ public class DrawFunc {
 		glBegin(GL_QUADS);
 			glColor4f(1,0,0,0);
 			glVertex2f(-0.5f, 0.5f);
+			glColor4f(1,1,0,0);
 			glVertex2f(0.5f, 0.5f);
+			glColor4f(1,0,1,0);
 			glVertex2f(0.5f, -0.5f);
+			glColor4f(1,0,0,1);
 			glVertex2f(-0.5f, -0.5f);
 		glEnd();
 	}
